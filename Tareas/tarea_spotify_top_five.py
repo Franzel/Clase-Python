@@ -37,20 +37,45 @@ bad_bunny_duracion = [
 # print(PostMalone)
 
 
+orden_duracion = []
+
+# s = post_malone_titulo
+# print(post_malone_duracion)
+# print(sorted(range(len(s)), key=lambda k: s[k]))
+
+post_malone_duracion.sort()
+orden_duracion = post_malone_duracion
+index_original =
+print(orden_duracion)
+
+
+
 print("Cantidad:" +str(len(post_malone_titulo)))
 for x in range(len(albumes)):
 
     # print(x, end="---")
     PostMalone = []
 
-    for i in range(len(post_malone_titulo)):
-        PostMalone.append(albumes[x])
-        PostMalone.append(post_malone_titulo[i])
-        PostMalone.append(post_malone_duracion[i])
-        print(PostMalone)
-        PostMalone.clear()
-# print(PostMalone)
+#     for i in range(len(post_malone_titulo)):
+#         PostMalone.append(albumes[x])
+#         PostMalone.append(post_malone_titulo[i])
+#         PostMalone.append(post_malone_duracion[i])
+#         print(PostMalone)
+#         PostMalone.clear()
+# # print(PostMalone)
 
+
+# post_malone_ordenado = []
+# for x in range(len(albumes)):
+#     for i in range(len(post_malone_titulo)):
+#         tema = {
+#             "album": albumes[x],
+#             "tema": post_malone_titulo[i],
+#             "duracion": post_malone_duracion[i]
+#         }
+#         post_malone_ordenado.append(tema)
+# for x in range(len(post_malone_ordenado)):
+#     print(post_malone_ordenado[x])
 
 """
 for x in range(n_artistas):
