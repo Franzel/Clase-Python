@@ -30,8 +30,29 @@ bad_bunny_titulo = [
 bad_bunny_duracion = [
 "2:50","2:43","2:40","3:26","2:52","3:16","2:39","2:16","2:47","3:12","3:30","2:55","3:52","4:55","4:03","3:47","3:10","4:18","4:00","2:37"]
 
-n_artistas  = len(artistas_nombre)
+# n_artistas  = len(artistas_nombre)
+# Artista = []
+# PostMalone.append([])
+# PostMalone.append([])
+# print(PostMalone)
 
+
+print("Cantidad:" +str(len(post_malone_titulo)))
+for x in range(len(albumes)):
+
+    # print(x, end="---")
+    PostMalone = []
+
+    for i in range(len(post_malone_titulo)):
+        PostMalone.append(albumes[x])
+        PostMalone.append(post_malone_titulo[i])
+        PostMalone.append(post_malone_duracion[i])
+        print(PostMalone)
+        PostMalone.clear()
+# print(PostMalone)
+
+
+"""
 for x in range(n_artistas):
     #print(artistas_nombre.index(x), x)
     print("--------", artistas_nombre[x])
@@ -60,28 +81,6 @@ for x in range(n_artistas):
 
 
 """
-for x in artistas_nombre:
-    #print(artistas_nombre.index(x), x)
-    print("--------", x)
-
-    print(len(post_malone_titulo))
-    for j in post_malone_titulo:
-        print(x, " - ", j)
-        for z in post_malone_duracion:
-            print(post_malone_duracion)
-"""
-
-"""
-        if x == "Post Malone":
-            for i in post_malone_titulo:
-                print("Tema: ", i, " - ")
-            for i in post_malone_duracion:
-                print(i)
-        if x == "Billie Eilish":
-            for i in billie_eilish_album_titulo:
-                print(i)
-"""
-
 
 
 
