@@ -31,60 +31,37 @@ bad_bunny_duracion = [
 "2:50","2:43","2:40","3:26","2:52","3:16","2:39","2:16","2:47","3:12","3:30","2:55","3:52","4:55","4:03","3:47","3:10","4:18","4:00","2:37"]
 
 n_artistas  = len(artistas_nombre)
-
+"""
 for x in range(n_artistas):
-    #print(artistas_nombre.index(x), x)
-    print("--------", artistas_nombre[x])
-    print(albumes[x])
 
+    print("--------", artistas_nombre[x])
+    #Ordenar por artista, album, cancion, duracion
     if artistas_nombre[x] == "Post Malone":
         n_canciones = len(post_malone_titulo)
         for i in range(n_canciones):
-            print(artistas_nombre[x], " - ", post_malone_titulo[i], " - ", post_malone_duracion[i])
+            print(albumes[x], " - ", post_malone_titulo[i], " - ", post_malone_duracion[i])
     if artistas_nombre[x] == "Billie Eilish":
         n_canciones = len(billie_eilish_album_titulo)
         for i in range(n_canciones):
-            print(artistas_nombre[x], " - ", billie_eilish_album_titulo[i], " - ", billie_eilish_album_duracion[i])
+            print(albumes[x], " - ", billie_eilish_album_titulo[i], " - ", billie_eilish_album_duracion[i])
     if artistas_nombre[x] == "Ariana Grande":
         n_canciones = len(ariana_grande_titulo)
         for i in range(n_canciones):
-            print(artistas_nombre[x], " - ", ariana_grande_titulo[i], " - ", ariana_grande_duracion[i])
+            print(albumes[x], " - ", ariana_grande_titulo[i], " - ", ariana_grande_duracion[i])
     if artistas_nombre[x] == "Ed Sheeran":
         n_canciones = len(ed_sheeran_titulo)
         for i in range(n_canciones):
-            print(artistas_nombre[x], " - ", ed_sheeran_titulo[i], " - ", ed_sheeran_duracion[i])
+            print(albumes[x], " - ", ed_sheeran_titulo[i], " - ", ed_sheeran_duracion[i])
     if artistas_nombre[x] == "Bad Bunny":
         n_canciones = len(bad_bunny_titulo)
         for i in range(n_canciones):
-            print(artistas_nombre[x], " - ", bad_bunny_titulo[i], " - ", bad_bunny_duracion[i])
+            print(albumes[x], " - ", bad_bunny_titulo[i], " - ", bad_bunny_duracion[i])
 
 
 """
-for x in artistas_nombre:
-    #print(artistas_nombre.index(x), x)
-    print("--------", x)
 
-    print(len(post_malone_titulo))
-    for j in post_malone_titulo:
-        print(x, " - ", j)
-        for z in post_malone_duracion:
-            print(post_malone_duracion)
-"""
+artistas_nombre.sort()
+print(artistas_nombre)
 
-"""
-        if x == "Post Malone":
-            for i in post_malone_titulo:
-                print("Tema: ", i, " - ")
-            for i in post_malone_duracion:
-                print(i)
-        if x == "Billie Eilish":
-            for i in billie_eilish_album_titulo:
-                print(i)
-"""
-
-
-
-
-
-
-
+post_malone_duracion.sort()
+print(post_malone_duracion)
