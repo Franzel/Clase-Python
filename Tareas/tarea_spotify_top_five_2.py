@@ -44,7 +44,15 @@ def ordenar_lista(lista, indice):
 
 
 #Creamos un array para los tres tipos de orden que usaremos
-ordenar_por = {"orden disco", "orden alfabetico", "orden duraciones"}
+ordenar_por = ["orden disco", "orden alfabetico", "orden duraciones"]
+
+top5_orden_disco_albumes = []
+top5_orden_disco_temas = []
+top5_orden_disco_duraciones = []
+
+top5_orden_alfabeto_albumes = []
+top5_orden_alfabeto_temas = []
+top5_orden_alfabeto_duraciones = []
 
 for caso in ordenar_por:
     print("--------------------------------------------")
@@ -76,6 +84,10 @@ for caso in ordenar_por:
                 print(albumes[x], end=" - ")
                 print(artista[i], end=" - ")
                 print(duraciones[i])
+                if i==0:
+                    top5_orden_disco_albumes.append(albumes[x])
+                    top5_orden_disco_temas.append(artista[i])
+                    top5_orden_disco_duraciones.append(duraciones[i])
         if caso == "orden alfabetico":
             print("ARTISTA: ", artistas_nombre[x].upper(), " ----------")
             canciones_ordenadas = ordenar_lista(artista, False)
@@ -84,6 +96,10 @@ for caso in ordenar_por:
                 print(albumes[x], end=" - ")
                 print(canciones_ordenadas[i], end=" - ")
                 print(duraciones[indice_original[i]])
+                if i==0:
+                    top5_orden_alfabeto_albumes.append(albumes[x])
+                    top5_orden_alfabeto_temas.append(canciones_ordenadas[i])
+                    top5_orden_alfabeto_duraciones.append(duraciones[indice_original[i]])
         if caso == "orden duraciones":
             print("ARTISTA: ", artistas_nombre[x].upper(), " ----------")
             duraciones_ordenadas = ordenar_lista(duraciones, False)
@@ -93,3 +109,13 @@ for caso in ordenar_por:
                 print(artista[indice_original[i]], end=" - ")
                 print(duraciones_ordenadas[i])
         print(" ")
+
+print ("TOP 5 SEGUN ORDEN DISCO")
+for x in range(len(top5_orden_disco_albumes)):
+    print(top5_orden_disco_albumes[x], " - ", top5_orden_disco_temas[x], " - ",top5_orden_disco_duraciones[x])
+
+print ("TOP 5 SEGUN ORDEN ALFABETO")
+print(top5_orden_alfabeto_temas)
+index = ordenar_lista(top5_orden_alfabeto_temas, True)
+for x in range(len(top5_orden_alfabeto_albumes)):
+    print(albumes[index[x]], " - ", top5_orden_alfabeto_temas[x], " - ", top5_orden_alfabeto_duraciones[index[x]])
