@@ -30,25 +30,20 @@ bad_bunny_titulo = [
 bad_bunny_duracion = [
 "2:50","2:43","2:40","3:26","2:52","3:16","2:39","2:16","2:47","3:12","3:30","2:55","3:52","4:55","4:03","3:47","3:10","4:18","4:00","2:37"]
 
-
+#
 def get_original_indices(lista):
     index_original = sorted(range(len(lista)), key=lambda k:lista[k])
     return index_original
 
-top5_albumes_alfabetico = []
-top5_temas_alfabetico = []
-top5_duraciones_alfabetico = []
-
-top5_albumes_duracion = []
-top5_temas_duracion = []
-top5_duraciones_duracion = []
-
-top5_albumes_disco = []
-top5_temas_disco = []
-top5_duraciones_disco = []
-
 case = ["disco", "alfa", "dura"]
+
 for c in case:
+    #crear las listas que guardaran los top5, segun cada caso
+    top5_albumes = []
+    top5_temas = []
+    top5_duraciones = []
+
+    # asignar temas y duraciones para cada disco, al iterar
     for i in range(len(albumes)):
         if i == 0:
             temas_originales = post_malone_titulo
@@ -66,18 +61,17 @@ for c in case:
             temas_originales = bad_bunny_titulo
             duraciones_originales = bad_bunny_duracion
 
+        this_album = albumes[i]
         # CASO ORDENAR POR ORDEN DISCO
         if c=="disco":
-            this_album = albumes[i]
             for j in range(len(temas_originales)):
                 if j==0:
-                    top5_albumes_disco.append(this_album)
-                    top5_temas_disco.append(temas_originales[j])
-                    top5_duraciones_disco.append(duraciones_originales[j])
+                    top5_albumes.append(this_album)
+                    top5_temas.append(temas_originales[j])
+                    top5_duraciones.append(duraciones_originales[j])
 
         # CASO ORDENAR POR ALFABETO
         if c=="alfa":
-            this_album = albumes[i]
             temas_ordenados = sorted(temas_originales)
             indices_originales = get_original_indices(temas_originales)
             duraciones_ordenadas = []
@@ -85,13 +79,12 @@ for c in case:
                 duraciones_ordenadas.append(duraciones_originales[indices_originales[j]])
                 #print(this_album, " - ", temas_ordenados[j], " - ", duraciones_ordenadas[j])
                 if j==0:
-                    top5_albumes_alfabetico.append(this_album)
-                    top5_temas_alfabetico.append(temas_ordenados[j])
-                    top5_duraciones_alfabetico.append(duraciones_ordenadas[j])
+                    top5_albumes.append(this_album)
+                    top5_temas.append(temas_ordenados[j])
+                    top5_duraciones.append(duraciones_ordenadas[j])
 
         # CASO ORDENAR POR DURACION
         if c=="dura":
-            this_album = albumes[i]
             temas_ordenados = []
             indices_originales = get_original_indices(duraciones_originales)
             duraciones_ordenadas = sorted(duraciones_originales)
@@ -100,35 +93,33 @@ for c in case:
                 temas_ordenados.append(temas_originales[indices_originales[j]])
                 #print(this_album, " - ", temas_ordenados[j], " - ", duraciones_ordenadas[j])
                 if j==0:
-                    top5_albumes_duracion.append(this_album)
-                    top5_temas_duracion.append(temas_ordenados[j])
-                    top5_duraciones_duracion.append(duraciones_ordenadas[j])
+                    top5_albumes.append(this_album)
+                    top5_temas.append(temas_ordenados[j])
+                    top5_duraciones.append(duraciones_ordenadas[j])
 
-    #SEGUNDO ORDEN, DENTRO DE LOS 5 SELECCIONADOS
-    #IMPRIMIR A LA CONSOLA
+ #IMPRIMIR A LA CONSOLA
     if c == "alfa":
         print("----------------ALFABETICAMENTE")
-        top5_temas_orden_final_alfabeto = sorted(top5_temas_alfabetico)
-        top5_indices_originales_alfabeto = get_original_indices(top5_temas_alfabetico)
-        top5_duraciones_orden_final_alfabeto = []
-        top5_albumes_orden_final_alfabeto = []
-        for i in range(len(top5_temas_alfabetico)):
-            top5_albumes_orden_final_alfabeto.append(top5_albumes_alfabetico[top5_indices_originales_alfabeto[i]])
-            top5_duraciones_orden_final_alfabeto.append(top5_duraciones_alfabetico[top5_indices_originales_alfabeto[i]])
-            #print(top5_albumes_alfabetico[i], " - ", top5_temas_alfabetico[i], " - ", top5_duraciones_alfabetico[i])
-            print(top5_albumes_orden_final_alfabeto[i], " - ",top5_temas_orden_final_alfabeto[i], " - ",top5_duraciones_orden_final_alfabeto[i])
+        top5_temas_orden_final = sorted(top5_temas)
+        top5_indices_originales = get_original_indices(top5_temas)
+        top5_duraciones_orden_final = []
+        top5_albumes_orden_final = []
+        for i in range(len(top5_temas)):
+            top5_albumes_orden_final.append(top5_albumes[top5_indices_originales[i]])
+            top5_duraciones_orden_final.append(top5_duraciones[top5_indices_originales[i]])
+            print(top5_albumes_orden_final[i], " - ",top5_temas_orden_final[i], " - ",top5_duraciones_orden_final[i])
 
     if c == "dura":
         print("----------------POR DURACION")
-        top5_duraciones_orden_final_duracion = sorted(top5_duraciones_duracion)
-        top5_indices_originales_duracion = get_original_indices(top5_duraciones_duracion)
-        top5_temas_orden_final_duracion = []
-        top5_albumes_orden_final_duracion = []
-        for i in range(len(top5_temas_duracion)):
-            top5_albumes_orden_final_duracion.append(top5_albumes_duracion[top5_indices_originales_duracion[i]])
-            top5_temas_orden_final_duracion.append(top5_temas_duracion[top5_indices_originales_duracion[i]])
-            print(top5_albumes_orden_final_duracion[i], " - ", top5_temas_orden_final_duracion[i], " - ", top5_duraciones_orden_final_duracion[i])
+        top5_duraciones_orden_final = sorted(top5_duraciones)
+        top5_indices_originales = get_original_indices(top5_duraciones)
+        top5_temas_orden_final = []
+        top5_albumes_orden_final = []
+        for i in range(len(top5_temas)):
+            top5_albumes_orden_final.append(top5_albumes[top5_indices_originales[i]])
+            top5_temas_orden_final.append(top5_temas[top5_indices_originales[i]])
+            print(top5_albumes_orden_final[i], " - ", top5_temas_orden_final[i], " - ", top5_duraciones_orden_final[i])
     if c == "disco":
         print("----------------POR ORDEN DISCO")
-        for i in range(len(top5_temas_disco)):
-            print(top5_albumes_disco[i], " - ", top5_temas_disco[i], " - ", top5_duraciones_disco[i])
+        for i in range(len(top5_temas)):
+            print(top5_albumes[i], " - ", top5_temas[i], " - ", top5_duraciones[i])

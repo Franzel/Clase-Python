@@ -28,3 +28,11 @@ bad_bunny_titulo = [
 "Si veo a tu mamá","La difícil","Pero ya no","La santa","Yo perreo sola","Bichiyal","Soliá","La zona","Que malo","Vete","Ignorantes","A tu merced","Una vez","Safaera","25/8","Está cabrón ser yo","Puesto pa' guerrial","P FKN R","Hablamos mañana","<3"]
 bad_bunny_duracion = [
 "2:50","2:43","2:40","3:26","2:52","3:16","2:39","2:16","2:47","3:12","3:30","2:55","3:52","4:55","4:03","3:47","3:10","4:18","4:00","2:37"]
+
+
+def get_original_indices(lista):
+    index_original = sorted(range(len(lista)), key=lambda k:lista[k])
+    return index_original
+
+indices = get_original_indices(post_malone_titulo)
+print(indices)
