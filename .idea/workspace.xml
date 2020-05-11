@@ -44,6 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -51,8 +52,8 @@
       <recent name="$PROJECT_DIR$/Tareas" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.topFive5">
-    <configuration name="ciclos_ordenados" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.control_de_ciclos_foro">
+    <configuration name="control_de_ciclos_foro" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Clase-Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -60,11 +61,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tareas" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ciclos_ordenados.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tareas/control_de_ciclos_foro.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="control_de_flujo_foro" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Clase-Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tareas" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tareas/control_de_flujo_foro.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,27 +108,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tareas/tarea_spotify_top_five.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Clase-Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.control_de_ciclos_foro" />
+        <item itemvalue="Python.control_de_flujo_foro" />
         <item itemvalue="Python.topFive5" />
         <item itemvalue="Python.topFive4" />
         <item itemvalue="Python.tarea_spotify_top_five" />
-        <item itemvalue="Python.ciclos_ordenados" />
-        <item itemvalue="Python.test2" />
       </list>
     </recent_temporary>
   </component>
@@ -197,54 +198,62 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="164" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.23.1920.1057@0.23.1920.1057" timestamp="1587436297206" />
-    <state width="505" height="553" key="GridCell.Tab.0.bottom" timestamp="1588900734607">
+    <state width="601" height="907" key="GridCell.Tab.0.bottom" timestamp="1589165478082">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="505" height="553" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1588900734607" />
+    <state width="601" height="907" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1589165478082" />
     <state width="1379" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.0.1920.1080@0.23.1920.1057" timestamp="1587867081400" />
     <state width="1379" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587737739001" />
     <state width="1379" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.23.1920.1057@0.23.1920.1057" timestamp="1588210413396" />
+    <state width="1581" height="330" key="GridCell.Tab.0.bottom/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604642" />
     <state width="1379" height="271" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.23.1920.1057@0.23.1920.1057" timestamp="1587437137086" />
-    <state width="505" height="553" key="GridCell.Tab.0.center" timestamp="1588900734606">
+    <state width="601" height="907" key="GridCell.Tab.0.center" timestamp="1589165478081">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="505" height="553" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1588900734606" />
+    <state width="601" height="907" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1589165478081" />
     <state width="1379" height="271" key="GridCell.Tab.0.center/0.23.1920.1057/1920.0.1920.1080@0.23.1920.1057" timestamp="1587867081399" />
     <state width="1379" height="271" key="GridCell.Tab.0.center/0.23.1920.1057/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587737739000" />
     <state width="1379" height="271" key="GridCell.Tab.0.center/0.23.1920.1057/1920.23.1920.1057@0.23.1920.1057" timestamp="1588210413395" />
+    <state width="1581" height="330" key="GridCell.Tab.0.center/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604642" />
     <state width="1379" height="271" key="GridCell.Tab.0.center/1920.0.1920.1080/0.23.1920.1057@0.23.1920.1057" timestamp="1587437137085" />
-    <state width="505" height="553" key="GridCell.Tab.0.left" timestamp="1588900734584">
+    <state width="601" height="907" key="GridCell.Tab.0.left" timestamp="1589165478081">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="505" height="553" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1588900734584" />
+    <state width="601" height="907" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1589165478081" />
     <state width="1379" height="271" key="GridCell.Tab.0.left/0.23.1920.1057/1920.0.1920.1080@0.23.1920.1057" timestamp="1587867081399" />
     <state width="1379" height="271" key="GridCell.Tab.0.left/0.23.1920.1057/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587737739000" />
     <state width="1379" height="271" key="GridCell.Tab.0.left/0.23.1920.1057/1920.23.1920.1057@0.23.1920.1057" timestamp="1588210413395" />
+    <state width="1581" height="330" key="GridCell.Tab.0.left/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604641" />
     <state width="1379" height="271" key="GridCell.Tab.0.left/1920.0.1920.1080/0.23.1920.1057@0.23.1920.1057" timestamp="1587437137085" />
-    <state width="505" height="553" key="GridCell.Tab.0.right" timestamp="1588900734607">
+    <state width="601" height="907" key="GridCell.Tab.0.right" timestamp="1589165478082">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="505" height="553" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1588900734607" />
+    <state width="601" height="907" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1589165478082" />
     <state width="1379" height="271" key="GridCell.Tab.0.right/0.23.1920.1057/1920.0.1920.1080@0.23.1920.1057" timestamp="1587867081400" />
     <state width="1379" height="271" key="GridCell.Tab.0.right/0.23.1920.1057/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587737739001" />
     <state width="1379" height="271" key="GridCell.Tab.0.right/0.23.1920.1057/1920.23.1920.1057@0.23.1920.1057" timestamp="1588210413396" />
+    <state width="1581" height="330" key="GridCell.Tab.0.right/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604642" />
     <state width="1379" height="271" key="GridCell.Tab.0.right/1920.0.1920.1080/0.23.1920.1057@0.23.1920.1057" timestamp="1587437137086" />
-    <state width="1581" height="330" key="GridCell.Tab.1.bottom" timestamp="1588883606550">
+    <state width="1581" height="330" key="GridCell.Tab.1.bottom" timestamp="1588990604644">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1581" height="330" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1588883606550" />
-    <state width="1581" height="330" key="GridCell.Tab.1.center" timestamp="1588883606550">
+    <state width="1581" height="330" key="GridCell.Tab.1.bottom/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604644" />
+    <state width="1581" height="330" key="GridCell.Tab.1.center" timestamp="1588990604643">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1581" height="330" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1588883606550" />
-    <state width="1581" height="330" key="GridCell.Tab.1.left" timestamp="1588883606550">
+    <state width="1581" height="330" key="GridCell.Tab.1.center/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604643" />
+    <state width="1581" height="330" key="GridCell.Tab.1.left" timestamp="1588990604643">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1581" height="330" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1588883606550" />
-    <state width="1581" height="330" key="GridCell.Tab.1.right" timestamp="1588883606550">
+    <state width="1581" height="330" key="GridCell.Tab.1.left/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604643" />
+    <state width="1581" height="330" key="GridCell.Tab.1.right" timestamp="1588990604643">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1581" height="330" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1588883606550" />
+    <state width="1581" height="330" key="GridCell.Tab.1.right/1680.23.800.577/0.23.1680.1027@0.23.1680.1027" timestamp="1588990604643" />
     <state x="209" y="162" key="SettingsEditor" timestamp="1587436933325">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
@@ -253,5 +262,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="500" height="400" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1588124284388" />
+    <state x="507" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1588968776654">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="507" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1588968776654" />
   </component>
 </project>
