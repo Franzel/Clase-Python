@@ -17,27 +17,39 @@ def promedio (listaNums):
         suma += listaNums[i]
     return round(suma/cantNums, 2)
 
+#funcion para determinar curso seleccionado (activo)
 def cursoActivo():
     # Imprimir listado de cursos ingresados
     print("LISTADO DE SUS CURSOS")
     for i in range(cantCursos):
         print(str(i + 1) + ". " + cursos[i])
-    print("seleccione un curso para ingresar sus notas")
-    cursoSeleccionado = int(input())
+    while True:
+        try:
+            cursoSeleccionado = int(input("seleccione un curso para ingresar sus notas: "))
+            while cursoSeleccionado > cantCursos or cursoSeleccionado < 1:
+                # print("Seleccion no válida, intente de nuevo:")
+                cursoSeleccionado = int(input("Seleccion no válida, intente de nuevo: "))
+            else:
+                break
+        except ValueError:
+            print("Seleccion no válida, ", end="")
+            continue
     # print(cursos[cursoSeleccionado - 1])
     return (cursos[cursoSeleccionado - 1], cursoSeleccionado-1)
 
+#Ingresar los nombres de los cursos
 for i in range(cantCursos):
-    cursos.append(input("ingrese curso " + str(i+1) + ": "))
-# print(cursos)
+    #cursos.append(input("ingrese curso " + str(i+1) + ": "))
+    cursos.append("CursoTest" + str(i))
 
-#Crear un repositorio vacio que guardara todas las notas
-todasLasNotas = [] #guarda todas las notas ingresadas, en un tuple
+#Crear un repositorio vacio que guardara todas las notas de todos los cursos
+todasLasNotas = []
 todosLosPromedios = []
 for i in range(cantCursos):
     todasLasNotas.append([])
     todosLosPromedios.append(0)
 
+#ingreso notas curso
 for i in range(cantCursos): #esto debe ser un while
     cursoSeleccionado = cursoActivo()
     notasEsteCurso = []
@@ -55,6 +67,14 @@ for i in range(cantCursos): #esto debe ser un while
     print("---")
     todasLasNotas[cursoSeleccionado[1]]=notasEsteCurso
     # print(todasLasNotas)
+
+# WIP: verificar si hay cursos sin ingresos
+for i in todasLasNotas:
+    print("cant de notas por curso", len(i))
+    if len(i)==0:
+        print("CURSO SIN NOTAS")
+        cursoActivo()
+
 
 
 for i in range(len(todasLasNotas)):
