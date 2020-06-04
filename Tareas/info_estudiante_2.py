@@ -2,8 +2,8 @@
 
 identidad = []
 cursos = []
-cantCursos = 4
-cantNotas = 3
+cantCursos = 3
+cantNotas = 6
 
 nombre = "Francisco"
 apellido = "Zamorano"
@@ -17,17 +17,25 @@ def promedio (listaNums):
         suma += listaNums[i]
     return round(suma/cantNums, 2)
 
+
 def ingresoNotas(index_curso):
     index_curso -= 1
     print("")
-    print("Ha seleccionado el curso", cursos[index_curso])
+    print("Ha seleccionado el curso", cursos[index_curso].upper())
+    print("ingrese 'Q' para salir de este curso")
+    if len(todasLasNotas[index_curso])>0:
+        print("ya ha ingresado " + str(len(todasLasNotas[index_curso])) + "/"+str(cantNotas) + " notas:", todasLasNotas[index_curso])
+
     notasEsteCurso = [] #creamos una lista vacia para recibir las notas
-    for j in range(cantNotas):
-        # print("Curso", cursos[index_curso], "- ingrese nota")
+
+    while len(todasLasNotas[index_curso])<cantNotas:
         entrada = input("  ingrese nota: ")
+        if entrada=="Q" or entrada=="q":
+            break
         nota = float(entrada)
         notasEsteCurso.append(nota)
-    todasLasNotas[index_curso] = notasEsteCurso
+        todasLasNotas[index_curso].append(nota)
+    # todasLasNotas[index_curso] = notasEsteCurso
     # print(todasLasNotas) #imprimir lista final - Solo Debug
 
 def imprimirInfoCurso(index_curso):
@@ -45,6 +53,22 @@ def imprimirInfoCurso(index_curso):
     print("-")
     print("")
 
+def cursoActivo():
+    print("Seleccione un curso para ingresar sus notas")
+    # print("o ingrese 'Q' para salir")
+    while True:
+        try:
+            cursoSeleccionado = int(input("curso #: "))
+            while cursoSeleccionado > cantCursos or cursoSeleccionado < 1:
+                # print("Seleccion no válida, intente de nuevo:")
+                cursoSeleccionado = int(input("Seleccion no válida, intente de nuevo: "))
+            else:
+                break
+        except ValueError:
+            print("Seleccion no válida, ", end="")
+            continue
+    return (cursoSeleccionado)
+
 
 #Crear un repositorio vacio que guardara todas las notas de todos los cursos
 todasLasNotas = []
@@ -57,37 +81,22 @@ for i in range(cantCursos):
 
 #Ingresar los nombres de los cursos
 for i in range(cantCursos):
-    #cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
-    cursos.append("CursoTest " + str(i)) #Rellenado auto para debug
+    cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
+    # cursos.append("CursoTest " + str(i+1)) #Rellenado auto para debug
 # Imprimir listado de cursos ingresados
 print("LISTADO DE SUS CURSOS")
 for i in range(cantCursos):
     print(str(i + 1) + ". " + cursos[i])
 
-def cursoActivo():
-    while True:
-        try:
-            cursoSeleccionado = int(input("Seleccione un curso para ingresar sus notas: "))
-            while cursoSeleccionado > cantCursos or cursoSeleccionado < 1:
-                # print("Seleccion no válida, intente de nuevo:")
-                cursoSeleccionado = int(input("Seleccion no válida, intente de nuevo: "))
-            else:
-                break
-        except ValueError:
-            print("Seleccion no válida, ", end="")
-            continue
-    return (cursoSeleccionado)
-
-
-
 #solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
 while not all(todosLosEstados):
     seleccion = cursoActivo()
     ingresoNotas(seleccion)
-    imprimirInfoCurso(seleccion)
+
     for i in range(len(todasLasNotas)):
         if len(todasLasNotas[i]) == cantNotas:
             todosLosEstados[i] = True
+            imprimirInfoCurso(seleccion)
 
 
 #Calcular promedio general y generar reporte final
