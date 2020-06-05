@@ -8,9 +8,9 @@ def ingresoInfoAlumno():
     # nombre = "Francisco"
     # apellido = "Zamorano"
     # carrera = "Arte"
-    n = input("ingrese su Nombre")
-    a = input("ingrese su Apellido")
-    c = input("ingrese su Carrera")
+    n = input("ingrese su Nombre    :")
+    a = input("ingrese su Apellido  :")
+    c = input("ingrese su Carrera   :")
     return (n,a,c)
 
 #funcion de calculo de promedio, su parametro es una lista
@@ -47,8 +47,6 @@ def ingresoNotas(index_curso):
             except ValueError:
                 print("ingreso no válido!")
                 break
-    # todasLasNotas[index_curso] = notasEsteCurso
-    # print(todasLasNotas) #imprimir lista final - Solo Debug
 
 def imprimirInfoCurso(index_curso):
     index_curso -= 1
@@ -68,9 +66,6 @@ def imprimirInfoCurso(index_curso):
 def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no sean numericos
     print("")
     entrada = input("Seleccione un curso para ingresar sus notas:")
-    # print("o ingrese 'Q' para salir")
-    # if entrada == "Q" or entrada == "q": #TODO: esto funciona pero aun esta entregando un return NONETYPE al final de esta funcion
-    #     datosAlumno = ingresoInfoAlumno()
     while True:
         try:
             cursoSeleccionado = int(entrada)
@@ -99,13 +94,9 @@ for i in range(cantCursos):
     todosLosEstados.append(False)
 
 #ingresar info alumno
-# infoAlumno()
 datosAlumno = ingresoInfoAlumno()
 
-
-
-
-#Ingresar los nombres de los cursos
+#Ingresar Cursos
 for i in range(cantCursos):
     # cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
     cursos.append("CursoTest " + str(i+1)) #Rellenado auto para debug
@@ -114,35 +105,22 @@ print("LISTADO DE SUS CURSOS")
 for i in range(cantCursos):
     print(str(i + 1) + ". " + cursos[i])
 
-
-#solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
+#Ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
 while not all(todosLosEstados):
     while True:
         try:
             seleccion = cursoActivo()
             ingresoNotas(seleccion)
             for i in range(len(todasLasNotas)):
-                if len(todasLasNotas[i]) == cantNotas:
+                if len(todasLasNotas[i]) == cantNotas: #se ingresaron todas las notas de este curso?
                     todosLosEstados[i] = True
-            imprimirInfoCurso(seleccion)
+            imprimirInfoCurso(seleccion) #imprimir reporte de cada curso individual
             break
         except TypeError:
-            ingresoInfoAlumno()
+            print(seleccion)
+
+            ingresoInfoAlumno() #volver a ingresar
             break
-
-
-
-
-# #solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
-# while not all(todosLosEstados):
-#     seleccion = cursoActivo()
-#     ingresoNotas(seleccion)
-#
-#     for i in range(len(todasLasNotas)):
-#         if len(todasLasNotas[i]) == cantNotas:
-#             todosLosEstados[i] = True
-#     imprimirInfoCurso(seleccion)
-
 
 #Calcular promedio general y generar reporte final
 for i in range(len(todasLasNotas)):
@@ -168,3 +146,14 @@ for i in range(len(cursos)):
         print(todasLasNotas[i][j], end="")
     print(" ")
     print("Promedio Curso   :", promedio(todasLasNotas[i]))
+
+
+# #solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
+# while not all(todosLosEstados):
+#     seleccion = cursoActivo()
+#     ingresoNotas(seleccion)
+#
+#     for i in range(len(todasLasNotas)):
+#         if len(todasLasNotas[i]) == cantNotas:
+#             todosLosEstados[i] = True
+#     imprimirInfoCurso(seleccion)
