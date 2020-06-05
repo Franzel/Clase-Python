@@ -2,11 +2,16 @@
 
 cursos = []
 cantCursos = 3
-cantNotas = 6
+cantNotas = 3
 
-nombre = "Francisco"
-apellido = "Zamorano"
-carrera = "Arte"
+def ingresoInfoAlumno():
+    # nombre = "Francisco"
+    # apellido = "Zamorano"
+    # carrera = "Arte"
+    n = input("ingrese su Nombre")
+    a = input("ingrese su Apellido")
+    c = input("ingrese su Carrera")
+    return (n,a,c)
 
 #funcion de calculo de promedio, su parametro es una lista
 def promedio (listaNums):
@@ -48,7 +53,7 @@ def ingresoNotas(index_curso):
 def imprimirInfoCurso(index_curso):
     index_curso -= 1
     print("---")
-    print("CARRERA  :", carrera)
+    print("CARRERA  :", datosAlumno[2])
     print("CURSO    :", cursos[index_curso])
     print("NOTAS    :", end=" ")
     for i in range(len(todasLasNotas[index_curso])):
@@ -64,6 +69,8 @@ def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no 
     print("")
     entrada = input("Seleccione un curso para ingresar sus notas:")
     # print("o ingrese 'Q' para salir")
+    # if entrada == "Q" or entrada == "q": #TODO: esto funciona pero aun esta entregando un return NONETYPE al final de esta funcion
+    #     datosAlumno = ingresoInfoAlumno()
     while True:
         try:
             cursoSeleccionado = int(entrada)
@@ -74,10 +81,13 @@ def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no 
                 return (cursoSeleccionado)
             break
         except ValueError:
-            print("Seleccion no válida, ", end="")
+            # print("Seleccion no válida, ", end="")
             break
 
-
+#------------------- PRINCIPAL ---------------------------
+#---------------------------------------------------------
+#---------------------------------------------------------
+#---------------------------------------------------------
 
 #Crear un repositorio vacio que guardara todas las notas de todos los cursos
 todasLasNotas = []
@@ -88,6 +98,13 @@ for i in range(cantCursos):
     todosLosPromedios.append(0)
     todosLosEstados.append(False)
 
+#ingresar info alumno
+# infoAlumno()
+datosAlumno = ingresoInfoAlumno()
+
+
+
+
 #Ingresar los nombres de los cursos
 for i in range(cantCursos):
     # cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
@@ -97,15 +114,34 @@ print("LISTADO DE SUS CURSOS")
 for i in range(cantCursos):
     print(str(i + 1) + ". " + cursos[i])
 
+
 #solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
 while not all(todosLosEstados):
-    seleccion = cursoActivo()
-    ingresoNotas(seleccion)
+    while True:
+        try:
+            seleccion = cursoActivo()
+            ingresoNotas(seleccion)
+            for i in range(len(todasLasNotas)):
+                if len(todasLasNotas[i]) == cantNotas:
+                    todosLosEstados[i] = True
+            imprimirInfoCurso(seleccion)
+            break
+        except TypeError:
+            ingresoInfoAlumno()
+            break
 
-    for i in range(len(todasLasNotas)):
-        if len(todasLasNotas[i]) == cantNotas:
-            todosLosEstados[i] = True
-    imprimirInfoCurso(seleccion)
+
+
+
+# #solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
+# while not all(todosLosEstados):
+#     seleccion = cursoActivo()
+#     ingresoNotas(seleccion)
+#
+#     for i in range(len(todasLasNotas)):
+#         if len(todasLasNotas[i]) == cantNotas:
+#             todosLosEstados[i] = True
+#     imprimirInfoCurso(seleccion)
 
 
 #Calcular promedio general y generar reporte final
@@ -118,8 +154,8 @@ print("------------------------------------------")
 print("REPORTE FINAL")
 print("------------------------------------------")
 
-print("NOMBRE ALUMNO    :", nombre, apellido)
-print("CARRERA          :", carrera)
+print("NOMBRE ALUMNO    :", datosAlumno[0], datosAlumno[1])
+print("CARRERA          :", datosAlumno[2])
 print("PROMEDIO GENERAL :", promedioGeneral)
 print("")
 for i in range(len(cursos)):
