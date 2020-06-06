@@ -76,7 +76,7 @@ def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no 
                 return (cursoSeleccionado)
             break
         except ValueError:
-            # print("Seleccion no válida, ", end="")
+            print("Seleccion no válida, ", end="")
             break
 
 #------------------- PRINCIPAL ---------------------------
@@ -107,9 +107,9 @@ for i in range(cantCursos):
 
 #Ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
 while not all(todosLosEstados):
+    seleccion = cursoActivo()
     while True:
         try:
-            seleccion = cursoActivo()
             ingresoNotas(seleccion)
             for i in range(len(todasLasNotas)):
                 if len(todasLasNotas[i]) == cantNotas: #se ingresaron todas las notas de este curso?
