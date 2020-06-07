@@ -1,8 +1,9 @@
-#https://pynative.com/python-check-user-input-is-number-or-string
+#Curso Python
+#Francisco Zamorano 2020
 
 cursos = []
-cantCursos = 3
-cantNotas = 3
+cantCursos = 6
+cantNotas = 6
 
 def ingresoInfoAlumno():
     # nombre = "Francisco"
@@ -19,13 +20,13 @@ def promedio(listaNums):
     cantNums = len(listaNums)
     for i in range(cantNums):
         suma += listaNums[i]
-    return round(suma/cantNums, 2)
+    return round(suma/cantNums, 1)
 
 def sortList(lista):
-    lista.sort(key=lambda lista:lista[1])
+    lista.sort(key=lambda lista:lista[0])
     return lista
 
-def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no sean numericos
+def cursoActivo():
     print(" ")
     print("LISTADO DE SUS CURSOS")
     for i in range(cantCursos):
@@ -88,11 +89,7 @@ def imprimirInfoCurso(index_curso):
             print("-")
             print("")
 
-
-
 #------------------- PRINCIPAL ---------------------------
-#---------------------------------------------------------
-#---------------------------------------------------------
 #---------------------------------------------------------
 
 #Crear un repositorio vacio que guardara todas las notas de todos los cursos
@@ -112,9 +109,6 @@ for i in range(cantCursos):
     cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
     # cursos.append("CursoTest " + str(i+1)) #Rellenado auto para debug
 
-cursosOrdenados = sortList(cursos)
-print(cursosOrdenados)
-
 #Ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
 while not all(todosLosEstados):
     seleccion = cursoActivo()
@@ -133,11 +127,24 @@ while not all(todosLosEstados):
                 ingresoInfoAlumno() #volver a ingresar
             break
 
-#Calcular promedio general y generar reporte final
+#Ordenar los cursos. Guradamos cada curso en una lista, y cada lista en una lista mayor
+infoCursos = []
+for i in range(len(cursos)):
+    esteCurso = []
+    esteCurso.append(cursos[i])
+    esteCurso.append(todasLasNotas[i])
+    esteCurso.append(promedio(todasLasNotas[i]))
+    # print(esteCurso)
+    infoCursos.append(esteCurso)
+
+infoCursosOrdenados = sortList(infoCursos) #ordenar segun el primer item de las listas (nombre curso)
+
+#Calcular promedio general
 for i in range(len(todasLasNotas)):
     todosLosPromedios[i] = promedio(todasLasNotas[i])
 promedioGeneral = round(promedio(todosLosPromedios),1)
 
+#Imprimir la informacion final
 print("")
 print("------------------------------------------")
 print("REPORTE FINAL")
@@ -148,17 +155,15 @@ print("CARRERA          :", datosAlumno[2])
 print("PROMEDIO GENERAL :", promedioGeneral)
 print("")
 
-
-
-
-for i in range(len(cursos)):
+for i in range(len(infoCursosOrdenados)):
     print("---")
-    print("CURSO            :", cursos[i])
-    print("Notas Curso      :",end=" ")
-    for j in range (len(todasLasNotas[i])):
+    print("CURSO            :", infoCursosOrdenados[i][0]) #nombre
+    print("Notas            : ", end="")
+
+    for j in range (len(infoCursosOrdenados[i][1])): #notas
         if j>0:
             print(",", end=" ")
-        print(todasLasNotas[i][j], end="")
-    print(" ")
-    print("Promedio Curso   :", promedio(todasLasNotas[i]))
+        print(infoCursosOrdenados[i][1][j], end="")
+    print("")
+    print("Promedio Curso   :",round(infoCursosOrdenados[i][2],1)) #promedio
 
