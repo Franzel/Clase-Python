@@ -14,13 +14,38 @@ def ingresoInfoAlumno():
     return (n,a,c)
 
 #funcion de calculo de promedio, su parametro es una lista
-def promedio (listaNums):
+def promedio(listaNums):
     suma = 0
     cantNums = len(listaNums)
     for i in range(cantNums):
         suma += listaNums[i]
     return round(suma/cantNums, 2)
 
+def sortList(lista):
+    lista.sort(key=lambda lista:lista[1])
+    return lista
+
+def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no sean numericos
+    print(" ")
+    print("LISTADO DE SUS CURSOS")
+    for i in range(cantCursos):
+        print(str(i + 1) + ". " + cursos[i])
+    print(" ")
+    entrada = input("Seleccione un curso para ingresar sus notas (para salir ingrese 'Q'):")
+    if entrada == "Q" or entrada == "q":
+        return (entrada)
+    while True:
+        try:
+            cursoSeleccionado = int(entrada)
+            while cursoSeleccionado > cantCursos or cursoSeleccionado < 1:
+                # print("Seleccion no válida, intente de nuevo:")
+                cursoSeleccionado = int(input("Seleccion no válida, intente de nuevo: "))
+            else:
+                return (cursoSeleccionado)
+            break
+        except ValueError:
+            print("Seleccion no válida, ", end="")
+            break
 
 def ingresoNotas(index_curso):
     index_curso -= 1
@@ -63,21 +88,7 @@ def imprimirInfoCurso(index_curso):
             print("-")
             print("")
 
-def cursoActivo(): # TODO:hacer el quit y que no acepte otros caracteres que no sean numericos
-    print("")
-    entrada = input("Seleccione un curso para ingresar sus notas:")
-    while True:
-        try:
-            cursoSeleccionado = int(entrada)
-            while cursoSeleccionado > cantCursos or cursoSeleccionado < 1:
-                # print("Seleccion no válida, intente de nuevo:")
-                cursoSeleccionado = int(input("Seleccion no válida, intente de nuevo: "))
-            else:
-                return (cursoSeleccionado)
-            break
-        except ValueError:
-            print("Seleccion no válida, ", end="")
-            break
+
 
 #------------------- PRINCIPAL ---------------------------
 #---------------------------------------------------------
@@ -98,12 +109,11 @@ datosAlumno = ingresoInfoAlumno()
 
 #Ingresar Cursos
 for i in range(cantCursos):
-    # cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
-    cursos.append("CursoTest " + str(i+1)) #Rellenado auto para debug
-# Imprimir listado de cursos ingresados
-print("LISTADO DE SUS CURSOS")
-for i in range(cantCursos):
-    print(str(i + 1) + ". " + cursos[i])
+    cursos.append(input("ingrese curso " + str(i+1) + ": ")) #Rellenado via input
+    # cursos.append("CursoTest " + str(i+1)) #Rellenado auto para debug
+
+cursosOrdenados = sortList(cursos)
+print(cursosOrdenados)
 
 #Ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
 while not all(todosLosEstados):
@@ -117,9 +127,10 @@ while not all(todosLosEstados):
             imprimirInfoCurso(seleccion) #imprimir reporte de cada curso individual
             break
         except TypeError:
-            print(seleccion)
-
-            ingresoInfoAlumno() #volver a ingresar
+            if seleccion==None:
+                seleccion = cursoActivo()# si hay entrada no valida
+            if seleccion=="q":
+                ingresoInfoAlumno() #volver a ingresar
             break
 
 #Calcular promedio general y generar reporte final
@@ -136,6 +147,10 @@ print("NOMBRE ALUMNO    :", datosAlumno[0], datosAlumno[1])
 print("CARRERA          :", datosAlumno[2])
 print("PROMEDIO GENERAL :", promedioGeneral)
 print("")
+
+
+
+
 for i in range(len(cursos)):
     print("---")
     print("CURSO            :", cursos[i])
@@ -147,13 +162,3 @@ for i in range(len(cursos)):
     print(" ")
     print("Promedio Curso   :", promedio(todasLasNotas[i]))
 
-
-# #solicitar ingreso de notas hasta que todos los cursos hayan ingresado todas las notas
-# while not all(todosLosEstados):
-#     seleccion = cursoActivo()
-#     ingresoNotas(seleccion)
-#
-#     for i in range(len(todasLasNotas)):
-#         if len(todasLasNotas[i]) == cantNotas:
-#             todosLosEstados[i] = True
-#     imprimirInfoCurso(seleccion)
