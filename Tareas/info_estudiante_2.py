@@ -6,9 +6,6 @@ cantCursos = 6
 cantNotas = 6
 
 def ingresoInfoAlumno():
-    # nombre = "Francisco"
-    # apellido = "Zamorano"
-    # carrera = "Arte"
     n = input("ingrese su Nombre    :")
     a = input("ingrese su Apellido  :")
     c = input("ingrese su Carrera   :")
